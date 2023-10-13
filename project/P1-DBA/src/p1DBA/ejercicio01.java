@@ -2,14 +2,12 @@ package p1DBA;
 
 import jade.core.Agent;
 import java.util.Iterator;
-import jade.core.Runtime;
 
 /**
  *
  * @author isma
  */
-public class guionPrueba2 extends Agent {
-    
+public class ejercicio01 extends Agent {
     @Override
     protected void setup() {
         System.out.println("Hola! Soy tu primer agente");
@@ -26,7 +24,7 @@ public class guionPrueba2 extends Agent {
         
         doDelete();
     }
-    
+
     @Override
     public void takeDown() {
         System.out.println("Terminando agente...");
