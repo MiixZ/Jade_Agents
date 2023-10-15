@@ -14,16 +14,25 @@ public class ejercicio04 extends Agent {
     public final int TIEMPO_ESPERA = 2000;
     Scanner escaner = new Scanner(System.in);
     ArrayList<Float> numeros = new ArrayList<>();
-    Boolean media_calculable = false; 
-    int n_numeros;
+    Boolean media_calculable = false, puedo_coger_numeros = false; 
+    int n_numeros = 1;
     
     WakerBehaviour pedirN_numeros = new WakerBehaviour(this, TIEMPO_ESPERA) {
         @Override
         public void onWake() {
-            System.out.println("\nMODO 0: Introduzca un número positivo" +
-                     " de elementos numéricos a leer:\n");
-            
-            n_numeros = escaner.nextInt();
+            int p = 0;
+            try {
+                System.out.println("\nMODO 0: Introduzca un número positivo" +
+                                   " de elementos numéricos a leer:\n");
+                p = escaner.nextInt();
+                n_numeros = p;
+                puedo_coger_numeros = true;
+            } catch (Exception e) {
+                System.out.println("\nMODO 0: El número introducido no es válido."
+                        + " Vuelva a intentarlo.\n" + escaner.next());
+                puedo_coger_numeros = false;
+                n_numeros = 1;
+            }
         }
     };
     
@@ -34,7 +43,7 @@ public class ejercicio04 extends Agent {
         public void onTick() {
             float n_actual;
 
-            if (n_numeros > 0) {
+            if (puedo_coger_numeros) {
                 try {
                     System.out.println("\nMODO 1: Cogiendo número...\n");
                     n_actual = escaner.nextFloat();
