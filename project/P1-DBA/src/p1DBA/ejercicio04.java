@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author isma
  */
 public class ejercicio04 extends Agent {
-    public final int TIEMPO_ESPERA = 2000;
+    public final int TIEMPO_ESPERA = 500;
     Scanner escaner = new Scanner(System.in);
     ArrayList<Float> numeros = new ArrayList<>();
     Boolean media_calculable = false, puedo_coger_numeros = false; 
